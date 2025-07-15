@@ -2,18 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return 'Homepage';
-});
+//Accueil
+Route::get('/', fn() => view('homepage'))->name('homepage');
 
-Route::get('/product', function() {
-    return 'Liste des produits';
-});
+//Produits
+Route::get('/product-list', fn() => view('product-list')) ->name('product-list');
 
-Route::get('/product/{id}', function() {
-    return 'Fiche du produit{id}';
-});
+//Fiche produit
+Route::get('/product/{id}', fn()=> view ('product-details')) ->name('product-details');
 
-Route::get('/cart', function() {
-    return 'Panier';
-});
+//Panier
+Route::get('/cart', fn() => view('cart')) ->name('cart');
+
+//Personnaliser
+Route::get('/personalize', fn() => view ('personalize')) ->name('personalize');
+
+//Contact
+Route::get('/contact', fn() => view ('contact')) ->name('contact');

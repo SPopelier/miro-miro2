@@ -1,3 +1,7 @@
-<div>
-    <!-- Simplicity is the ultimate sophistication. - Leonardo da Vinci -->
-</div>
+@extends('layouts.main')
+
+@section('title', 'Cart')
+
+@section('content')
+
+@endsection
