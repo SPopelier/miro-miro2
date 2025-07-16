@@ -11,7 +11,7 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     //for show a list of all the products
-    public function index(): View
+    public function listOfProducts(): View
     {
         $products = DB::select('SELECT * FROM products');
         //? protège contre les injections SQL
@@ -19,7 +19,7 @@ class ProductController extends Controller
     }
 
     //for show one productsheet
-    public function show($id): View
+    public function productSheet ($id): View
     {
        $product = DB::select('SELECT * FROM products WHERE id = ?', [$id]);
 
@@ -28,5 +28,25 @@ class ProductController extends Controller
         }
 
         return view('product-details', ['product' => $product[0]]);
+    }
+
+    //sort by price
+    public function sortByPrice() : View
+     {
+        $products = DB::table('products')
+                   ->orderBy('price')
+                   ->get();
+
+                   return view('product-list', ['products' => $products]);
+                }
+
+    //sort by name
+    public function sortByName() : View
+    {
+        $products = DB::table('products')
+                        ->orderBy('name')
+                        ->get();
+
+                        return view('product-list', ['products' => $products]);
     }
 }

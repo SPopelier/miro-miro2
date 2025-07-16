@@ -1,11 +1,21 @@
 @extends('layouts.main')
 
-@section('title', 'Liste des produits')
+@section('title', 'product-list')
 
 @section('content')
 
-<div class="container hero-section d-flex align-items-center justify-content-center text-center mt-5 mb-5">
-    <a href="#products" class="btn btn-dark btn-lg">FILTRER</a>
+<div class="container my-5">
+    <div class="row">
+        <div class="dropdown col text-center">
+                <button class="btn btn-dark btn-lg dropdown-toggle " type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    FILTRER
+                </button>
+                    <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                        <li><a class="dropdown-item" href="{{ url('/products/sort/price') }}">Trier par prix</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/product/sort/name') }}">Trier par nom</a></li>
+                    </ul>
+        </div>
+    </div>
 </div>
 
 <section id="products" class="container">
