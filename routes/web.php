@@ -2,20 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
-//Accueil
-Route::get('/', fn () => view('homepage'))->name('homepage');
+//Homepage
+Route::get('/', function () { $products = Product::all(); return view('homepage', ['products' => $products]); })->name('homepage');
 
-//Produits
+//Products
 Route::get('/product-list', [ProductController::class, 'index'])->name('product-list');
 
-//Fiche produit
+//Product Sheet
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-details');
 
-//Panier
+//Cart
 Route::get('/cart', fn () => view('cart')) ->name('cart');
 
-//Personnaliser
+//Personnalize
 Route::get('/personalize', fn () => view('personalize')) ->name('personalize');
 
 //Contact

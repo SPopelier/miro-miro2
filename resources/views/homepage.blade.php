@@ -25,20 +25,20 @@
         <h2 class="mb-4">Nos produits tendances</h2>
 
         <div class="row row-cols-1 row-cols-md-2 g-4">
-            @for ($i = 0; $i < 6; $i++)
+            @foreach ($products as $product)
                 <div class="col">
                     <div class="product-card d-flex align-items-center gap-3 p-3 border rounded bg-miro-color"
                         style="background-color: #E3B46A">
-                        <img src="{{ asset('assets/produit1.png') }}" alt="Lunettes Lorem"
+                        <img src="{{ asset('assets/' . $product->image) }}" alt="Lunettes {{ $product->name }}"
                             style="height: 80px; width: auto; object-fit: contain;">
                         <div class="flex-grow-1">
-                            <p class="mb-1">Lorem</p>
-                            <p class="fw-bold">19€</p>
+                            <p class="mb-1">{{ $product->name }}</p>
+                            <p class="fw-bold">{{ $product->price }}</p>
                         </div>
-                        <button class="btn btn-dark btn-sm">VOIR</button>
+                        <a href="{{ route('product-details', $product->id) }}" class="btn btn-dark btn-sm">VOIR</a>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </section>
 
