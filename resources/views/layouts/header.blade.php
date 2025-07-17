@@ -17,6 +17,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('homepage') }}">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('product-list') }}">Explorer</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('personalize') }}">Personnaliser</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('mon-compte') }}">Mon compte</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
