@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
-
+use Faker\Calculator\Ean;
 
 class ProductController extends Controller
 {
@@ -48,5 +48,18 @@ class ProductController extends Controller
                         ->get();
 
                         return view('product-list', ['products' => $products]);
+    }
+
+    public function update(Request $request, $id) {
+        $validated = $request->validate([
+            'nom' => 'required|string|max:225',
+            'description' => 'required|string',
+            'prix' => 'required|numeric|min:0',
+        ]);
+
+        $product = Product::findOrfail($id);
+        $product->update($validated);
+
+        return redirect()-> route('product'->with('succes', 'Produit mis à jour !'));
     }
 }
