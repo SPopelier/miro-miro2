@@ -43,5 +43,10 @@ Route::get('/backoffice/products', [BackofficeController::class, 'products'])->n
 Route::get('backoffice/product/{id}', [BackofficeController::class, 'productdetailsbackoffice'])->name('product-details-backoffice');
 
 //Backoffice Edit
-Route::get('/product/{id}/edit', [BackofficeController::class, 'editProduct'])->name('product-edit-backoffice');
+Route::get('backoffice/product/{id}/edit', [BackofficeController::class, 'edit-backoffice'])->name('edit-backoffice');
 
+//Backoffice New
+Route::post('/backoffice/product', [BackofficeController::class, 'create'])->name('store-product');
+
+//Backoffice Delete
+Route::delete("backoffice/product/{id}", [BackofficeController::class, "delete"])->name("delete-product");
