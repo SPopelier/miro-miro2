@@ -27,7 +27,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">{{ $product->description }}</p>
-                        <p class="card-text fw-bold">{{ $product->price }}€00</p>
+                        <p class="card-text fw-bold">{{ $product->price }}€</p>
                         <a href="{{ route('product-details', $product->id) }}" class="btn btn-dark btn-lg mt-auto">Voir le produit</a>
                     </div>
                 </div>

@@ -40,7 +40,7 @@ Route::get('/dashboard', [BackofficeController::class, 'dashboard'])->name('dash
 Route::get('/backoffice/products', [BackofficeController::class, 'products'])->name('products');
 
 //Backoffice-Products Sheet
-Route::get('/product/{id}', [BackofficeController::class, 'productdetailsbackoffice'])->name('product-details-backoffice');
+Route::get('backoffice/product/{id}', [BackofficeController::class, 'productdetailsbackoffice'])->name('product-details-backoffice');
 
 //Backoffice Edit
 Route::get('/product/{id}/edit', [BackofficeController::class, 'editProduct'])->name('product-edit-backoffice');

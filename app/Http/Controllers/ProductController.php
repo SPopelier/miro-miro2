@@ -60,6 +60,6 @@ class ProductController extends Controller
         $product = Product::findOrfail($id);
         $product->update($validated);
 
-        return redirect()-> route('product'->with('succes', 'Produit mis à jour !'));
+        return redirect()-> route('product-details', $id->with('succes', 'Produit mis à jour !'));
     }
 }
