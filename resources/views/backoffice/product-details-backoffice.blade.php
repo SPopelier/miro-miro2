@@ -14,7 +14,6 @@
       <p><strong>Prix :</strong> {{ $product->price }} €</p>
     </div>
     <div class="card-footer text-end">
-        <a href="{{ route('product-edit-backoffice', $product->id) }}" class="btn btn-warning me-2">✏️ Modifier</a>
       <a href="{{ route('products') }}" class="btn btn-secondary">⬅ Retour</a>
     </div>
   </div>
